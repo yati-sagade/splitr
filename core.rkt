@@ -1,16 +1,4 @@
 (define (sum xs)
-  (foldl + 0 xs))
-
-(define (new-split contributions)
-  (let* ((total    (total-expense contributions))
-         (share    (/ total (length contributions)))
-         (balances (map (lambda (contrib)
-                          (balance (get-amount contrib) share))
-                        contributions)))
-    ()
-    (list total share)))
-
-(define (sum xs)
   (foldl + 0.0 xs))
 
 (define (get-share contribs)
@@ -81,45 +69,4 @@
                     (lambda (a b)
                       (> (second a) (second b))))])
     (aux pos neg '())))
-
-
-(define (settle into drs)
-  (define (aux drs solution)
-    (cond ((or (null drs)
-               (= (get-amount into) 0))
-           (list solution drs))
-          (else (let ([dr   (first drs)]
-                      [damt (get-amount dr)]
-                      [amt  (get-amount into)])
-                  (if (< damt amt)
-                      (aux )))))))
-
-(define (make-contrib name amount)
-  (list name amount))
-
-(define get-name first)
-
-(define get-amount second)
-
-(define (balance contribution share)
-  (- contribution share))
-
-(define (names contributions)
-  (map first contributions))
-
-(define (total-expense contributions)
-  (sum (map second contributions)))
-
-(define (test)
-  (let* ([xs '(("first"   10)
-               ("second"  25)
-               ("third"  100)
-               ("fourth"   0))]
-         [cs (map (lambda (t)
-                    (apply make-contrib t))
-                  xs)])
-    (new-split cs)))
-
-
-(define ())
 
