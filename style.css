@@ -1,0 +1,20 @@
+#header {
+    background-color: light-blue;
+    color: black;
+    padding: 20px;
+    margin: 0;
+}
+
+#main {
+    padding: 10px;
+}
+
+.details {
+    display: inline-block;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
